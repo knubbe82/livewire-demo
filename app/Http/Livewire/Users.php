@@ -60,6 +60,8 @@ class Users extends Component
         $this->showForm = false;
         $this->resetFields();
         session()->flash('message', $this->user->name . ' updated');
+
+        $this->resetPage();
     }
 
     public function updated($propertyName)
@@ -72,6 +74,8 @@ class Users extends Component
         $user->delete();
         $this->emit('handleCount');
         session()->flash('message', $user->name . ' deleted');
+
+        $this->resetPage();
     }
 
     private function resetFields()
